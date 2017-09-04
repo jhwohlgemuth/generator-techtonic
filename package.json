@@ -38,7 +38,7 @@
     "eslint": "^4.1.1",
     "eslint-config-omaha-prime-grade": "^4.0.0",
     "http-server": "^0.10.0",
-    "jest": "^20.0.4",
+    "jest": "^21.0.0",
     "jest-image-snapshot": "^1.0.0",
     "puppeteer": "^0.10.2",
     "sinon": "^3.0.0",
