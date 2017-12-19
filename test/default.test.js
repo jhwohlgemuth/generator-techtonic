@@ -84,7 +84,7 @@ describe('Default generator', function() {
                 verify();
                 fileContent('Gruntfile.js', 'jst');
                 noFileContent('Gruntfile.js', 'handlebars');
-                noFile('app/helpers/handlebars.helpers.js')
+                noFile('app/helpers/handlebars.helpers.js');
             }));
         it('all prompts TRUE (--skip-aria)', () => helpers.run(join(__dirname, '../generators/app'))
             .withOptions(merge({}, SKIP_INSTALL, {'skip-aria': true}))

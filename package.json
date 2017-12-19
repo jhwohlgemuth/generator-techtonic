@@ -45,6 +45,7 @@
     "http-server": "^0.10.0",
     "jest": "^22.0.0",
     "jest-image-snapshot": "^2.0.0",
+    "jest-runner-eslint": "^0.3.0",
     "ncp": "^2.0.0",
     "puppeteer": "^0.13.0",
     "watch": "^1.0.1",
@@ -56,11 +57,10 @@
       "flow"
     ]
   },
-  "jest": {
-    "testMatch": [
-      "**/test/*.js"
-    ],
-    "setupTestFrameworkScriptFile": "./test/lib/jestSetup.js"
+  "jest-runner-eslint": {
+    "cliOptions": {
+      "fix": true
+    }
   },
   "scripts": {
     "lint": "flow && npm run eslint",
@@ -68,7 +68,7 @@
     "lint:watch": "watch 'npm run lint' ./src",
     "lint:tests": "eslint --fix --env jest -c ./.eslintrc.js ./test/**; exit 0;",
     "lint:tests:watch": "watch 'npm run lint:tests' ./test",
-    "test": "npm run build && jest .*.test.js",
+    "test": "npm run build && jest .*.test.js --projects jest.config.js jest-eslint.config.js",
     "coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
     "test:ci": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
