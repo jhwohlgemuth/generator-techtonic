@@ -33,10 +33,5 @@ module.exports = {
         type: Boolean,
         desc: 'DO NOT add image minification to project deploy pipeline',
         defaults: false
-    },
-    skipAria: {
-        type: Boolean,
-        desc: 'DO NOT add ARIA auditing tasks and dependencies to project',
-        defaults: false
     }
 };

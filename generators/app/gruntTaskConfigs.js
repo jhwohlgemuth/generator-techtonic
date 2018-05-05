@@ -1,47 +1,6 @@
 
 module.exports = {
     /**
-     * Accessibility audit with a11y
-     * @see {@link https://github.com/lucalanca/grunt-a11y}
-    **/
-    a11y: `{
-        index: {
-            options: {urls: ['<%= folders.app %>/<%= files.index %>']}
-        }
-    }`,
-    /**
-     * Accessibility audit with AccessSniff and HTML Codesniffer
-     * @see {@link https://github.com/yargalot/grunt-accessibility}
-    **/
-    accessibility: `{
-        index: {
-            options: {
-                reportLevels: {
-                    notice: false,
-                    warning: true,
-                    error: true
-                },
-                accessibilityLevel: 'WCAG2AAA',
-                ignore : [
-                    'WCAG2A.Principle2.Guideline2_4.2_4_2.H25.2'
-                ]
-            },
-            src: ['<%= folders.app %>/<%= files.index %>']
-        },
-        templates: {
-            options: {
-                accessibilityLevel: 'WCAG2AAA',
-                ignore : [
-                    //Templates will tend to always violate these rules and need not be reported
-                    'WCAG2A.Principle2.Guideline2_4.2_4_2.H25.2',
-                    'WCAG2A.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl',
-                    'WCAG2A.Principle3.Guideline3_1.3_1_1.H57.2'
-                ]
-            },
-            src: ['<%= folders.assets %>/<%= files.templates %>']
-        }
-    }`,
-    /**
      * Use Browserify to bundle scripts
      * @see {@link https://github.com/jmreidy/grunt-browserify}
     **/

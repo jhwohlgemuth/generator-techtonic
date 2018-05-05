@@ -8,7 +8,6 @@ type Config = {
     sourceDirectory: string,
     userName: string,
     useAmd: boolean,
-    useAria: boolean,
     useBrowserify: boolean,
     useHandlebars: boolean,
     useImagemin: boolean,
@@ -54,7 +53,6 @@ export type WebappGenerator = {
     options: {
         cssPreprocessor: string,
         defaults: boolean,
-        skipAria: boolean,
         skipImagemin: boolean,
         slim: boolean,
         templateTechnology: string,
@@ -65,7 +63,6 @@ export type WebappGenerator = {
     },
     prompt: Function,
     use: {
-        aria: boolean,
         imagemin: boolean,
         moduleData: string
     },

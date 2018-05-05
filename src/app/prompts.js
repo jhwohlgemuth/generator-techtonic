@@ -44,12 +44,6 @@ const webappQuestions = [
     },
     {
         type: 'confirm',
-        name: 'aria',
-        message: 'Enforce ARIA and Section 508 standards?',
-        default: true
-    },
-    {
-        type: 'confirm',
         name: 'imagemin',
         message: 'Use image compression for deployed application?',
         default: true

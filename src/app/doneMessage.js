@@ -14,7 +14,6 @@ module.exports = function(generator) {
     const {
         projectName,
         useAmd,
-        useAria,
         useHandlebars,
         useImagemin,
         useJest,
@@ -49,7 +48,6 @@ module.exports = function(generator) {
         ].map(yes).map(str => `  ${str}`)),
         '',
         maybe(isWebapp, [
-            yesNo(useAria)('Perform accessibility audit on HTML code'),
             yesNo(useImagemin)('Compress production images with imagemin')
         ]),
         maybe(isNative, ['', yellow.bgBlack.bold(ELECTRON_TAGLINE)]),

@@ -91,7 +91,7 @@ module.exports = class extends Generator {
     writing() {
         const generator = this;
         const { config, options, use, user } = generator;
-        const { skipAria, skipImagemin, slim } = options;
+        const { skipImagemin, slim } = options;
         const {
             isNative,
             projectName,
@@ -103,7 +103,6 @@ module.exports = class extends Generator {
             useWebpack
         } = config.getAll();
         const userName = config.get('userName') || user.git.name();
-        const useAria = use.aria && !skipAria && !slim;
         const useImagemin = use.imagemin && !skipImagemin && !slim;
         const appDirectory = `${sourceDirectory}app/`;
         const assetsDirectory = `${sourceDirectory}assets/`;
@@ -111,7 +110,6 @@ module.exports = class extends Generator {
         const type = resolveCssPreprocessor(this);
         const ext = CSS_PREPROCESSOR_EXT_LOOKUP[type];
         config.set({
-            useAria,
             useImagemin,
             pluginDirectory
         });
@@ -119,7 +117,6 @@ module.exports = class extends Generator {
             sourceDirectory,
             isNative,
             projectName,
-            useAria,
             useImagemin,
             userName
         });
@@ -147,7 +144,6 @@ module.exports = class extends Generator {
         const {
             sourceDirectory,
             useAmd,
-            useAria,
             useBrowserify,
             useHandlebars,
             useImagemin,
@@ -172,7 +168,7 @@ module.exports = class extends Generator {
         const gruntDependencies = ['grunt', 'grunt-browser-sync', 'grunt-cli', 'grunt-contrib-clean', 'grunt-contrib-copy', 'grunt-contrib-uglify', 'grunt-contrib-watch', 'grunt-eslint', 'grunt-express', 'grunt-jsdoc', 'grunt-jsonlint', 'grunt-open', 'grunt-parallel', 'grunt-plato', 'grunt-replace', 'load-grunt-tasks', 'time-grunt'].concat(iff(!useJest, 'grunt-karma'));
         const workflowDependencies = ['babel-cli', 'babel-preset-env', 'config', 'eslint-plugin-backbone', 'fs-promise', 'globby', 'json-server'].concat( // conditional dependencies
         iff(!useBrowserify, 'babel-preset-minify@0.3.0'), iff(!useJest, requirejsDevDependencies), ...gruntDependencies, ...htmlDevDependencies, ...cssDevDependencies);
-        const devDependencies = workflowDependencies.concat(iff(useBrowserify, browserifyDependencies), iff(useAria, ['grunt-a11y', 'grunt-accessibility']), iff(useImagemin, 'grunt-contrib-imagemin'), iff(useLess, 'grunt-contrib-less'), iff(useSass, 'grunt-contrib-sass'), iff(useHandlebars, 'grunt-contrib-handlebars', 'grunt-contrib-jst'));
+        const devDependencies = workflowDependencies.concat(iff(useBrowserify, browserifyDependencies), iff(useImagemin, 'grunt-contrib-imagemin'), iff(useLess, 'grunt-contrib-less'), iff(useSass, 'grunt-contrib-sass'), iff(useHandlebars, 'grunt-contrib-handlebars', 'grunt-contrib-jst'));
         generator.npmInstall(dependencies, { save: true });
         generator.npmInstall(devDependencies, { saveDev: true });
         //
@@ -247,7 +243,6 @@ module.exports = class extends Generator {
         // Register custom grunt tasks
         //
         gruntfile.insertConfig('postcss', tasks.postcss(sourceDirectory, type === 'none'));
-        useAria && gruntfile.registerTask('aria-audit', ['accessibility', 'a11y']);
         gruntfile.registerTask('default', ['serve']);
         //
         // Write to file and display footer
@@ -325,7 +320,6 @@ function getScripts(generator) {
 function getTasks(generator) {
     const { config } = generator;
     const {
-        useAria,
         useBrowserify,
         useHandlebars,
         useImagemin,
@@ -335,5 +329,5 @@ function getTasks(generator) {
     } = config.getAll();
     return [// Tasks enabled by default
     'browserSync', 'clean', 'copy', 'eslint', 'htmlmin', 'htmlhintplus', 'jsdoc', 'jsonlint', 'karma', 'open', 'plato', 'replace', 'requirejs', 'watch'].concat( // Webapp tasks enabled by user
-    iff(useAria, ['a11y', 'accessibility']), iff(useBrowserify, 'browserify'), iff(useHandlebars, 'handlebars', 'jst'), iff(useImagemin, ['imagemin', 'copy']), iff(useLess, 'less'), iff(useSass, 'sass'), iff(useWebpack, 'webpack'), iff(useWebpack || useBrowserify, 'uglify'));
+    iff(useBrowserify, 'browserify'), iff(useHandlebars, 'handlebars', 'jst'), iff(useImagemin, ['imagemin', 'copy']), iff(useLess, 'less'), iff(useSass, 'sass'), iff(useWebpack, 'webpack'), iff(useWebpack || useBrowserify, 'uglify'));
 }

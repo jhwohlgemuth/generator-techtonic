@@ -24,11 +24,6 @@ const browserifyContent = [
     ['package.json', '"aliasify":'],
     ['Gruntfile.js', 'browserify']
 ];
-const ariaContent = [
-    ['Gruntfile.js', 'a11y: '],
-    ['Gruntfile.js', 'accessibility: '],
-    ['Gruntfile.js', 'aria-audit']
-];
 
 describe('Default generator', function() {
     let stub;
@@ -51,7 +46,6 @@ describe('Default generator', function() {
                 verify();
                 verifyAmdFiles(),
                 noFileContent(browserifyContent);
-                noFileContent(ariaContent);
                 noFileContent('Gruntfile.js', 'imagemin: ');
                 noFileContent('Gruntfile.js', 'webpack: ');
                 fileContent('config/.eslintrc.js', 'amd: true,');
@@ -85,31 +79,13 @@ describe('Default generator', function() {
                 noFileContent('Gruntfile.js', 'handlebars');
                 noFile('app/helpers/handlebars.helpers.js');
             }));
-        it('all prompts TRUE (--skip-aria)', () => helpers.run(join(__dirname, '../generators/app'))
-            .withOptions(merge({}, SKIP_INSTALL, {'skip-aria': true}))
-            .withPrompts(ALL_TRUE)
-            .toPromise()
-            .then(() => {
-                verify();
-                noFileContent(ariaContent);
-                fileContent('Gruntfile.js', 'imagemin: ');
-            }));
         it('all prompts TRUE (--skip-imagemin)', () => helpers.run(join(__dirname, '../generators/app'))
             .withOptions(merge({}, SKIP_INSTALL, {'skip-imagemin': true}))
             .withPrompts(ALL_TRUE)
             .toPromise()
             .then(() => {
                 verify();
-                fileContent(ariaContent);
                 noFileContent('Gruntfile.js', 'imagemin: ');
-            }));
-        it('only aria prompt FALSE', () => helpers.run(join(__dirname, '../generators/app'))
-            .withOptions(SKIP_INSTALL)
-            .withPrompts(merge({}, ALL_TRUE, {aria: false}))
-            .toPromise()
-            .then(() => {
-                verify();
-                noFileContent(ariaContent);
             }));
         it('only imagemin prompt FALSE', () => helpers.run(join(__dirname, '../generators/app'))
             .withOptions(SKIP_INSTALL)
@@ -126,7 +102,6 @@ describe('Default generator', function() {
             .then(() => {
                 verify();
                 fileContent(browserifyContent);
-                fileContent(ariaContent);
                 fileContent('Gruntfile.js', 'imagemin: ');
                 fileContent('Gruntfile.js', 'uglify: ');
                 fileContent('config/.eslintrc.js', 'amd: false,');
@@ -140,7 +115,6 @@ describe('Default generator', function() {
                 verify();
                 noFile('test/config.js');
                 noFileContent(browserifyContent);
-                fileContent(ariaContent);
                 fileContent('package.json', '"testMatch":');
                 fileContent('package.json', '"test": "jest ');
                 file('config/webpack.config.js');
@@ -185,7 +159,6 @@ describe('Default generator', function() {
             .toPromise()
             .then(() => {
                 verify();
-                noFileContent(ariaContent);
                 noFileContent('Gruntfile.js', 'imagemin: ');
             }));
         it('--defaults --use-rust', () => helpers.run(join(__dirname, '../generators/app'))
@@ -254,28 +227,24 @@ describe('Default generator', function() {
                 fileContent('Gruntfile.js', 'jst');
                 noFileContent('Gruntfile.js', 'handlebars');
             }));
-        it('--defaults --skip-aria --skip-imagemin', () => helpers.run(join(__dirname, '../generators/app'))
+        it('--defaults --skip-imagemin', () => helpers.run(join(__dirname, '../generators/app'))
             .withOptions(merge({}, SKIP_INSTALL, {
                 defaults: true,
-                'skip-aria': true,
                 'skip-imagemin': true}))
             .toPromise()
             .then(() => {
                 verify();
-                noFileContent(ariaContent);
                 noFileContent('Gruntfile.js', 'imagemin: ');
             }));
-        it('--defaults --skip-aria --skip-imagemin --use-browserify', () => helpers.run(join(__dirname, '../generators/app'))
+        it('--defaults --skip-imagemin --use-browserify', () => helpers.run(join(__dirname, '../generators/app'))
             .withOptions(merge({}, SKIP_INSTALL, {
                 defaults: true,
-                'skip-aria': true,
                 'skip-imagemin': true,
                 'use-browserify': true}))
             .toPromise()
             .then(() => {
                 verify();
                 fileContent(browserifyContent);
-                noFileContent(ariaContent);
                 noFileContent('Gruntfile.js', 'imagemin: ');
             }));
         it('--defaults --use-browserify --css-preprocessor sass --template-technology lodash', () => helpers.run(join(__dirname, '../generators/app'))
@@ -291,7 +260,6 @@ describe('Default generator', function() {
                 fileContent(browserifyContent);
                 fileContent('Gruntfile.js', 'jst');
                 noFileContent('Gruntfile.js', 'handlebars');
-                fileContent(ariaContent);
                 fileContent('Gruntfile.js', 'imagemin: ');
             }));
         it('--defaults --src boot', () => helpers.run(join(__dirname, '../generators/app'))
@@ -334,18 +302,7 @@ describe('Default generator (with custom source directory)', function() {
             .then(() => {
                 verify();
                 noFileContent(browserifyContent);
-                noFileContent(ariaContent);
                 noFileContent('Gruntfile.js', 'imagemin: ');
-            }));
-        it('only aria prompt FALSE', () => helpers.run(join(__dirname, '../generators/app'))
-            .withOptions(SKIP_INSTALL)
-            .withPrompts(merge({}, ALL_TRUE, {sourceDirectory, aria: false}))
-            .toPromise()
-            .then(() => {
-                verify();
-                noFileContent(browserifyContent);
-                noFileContent(ariaContent);
-                fileContent('Gruntfile.js', 'imagemin: ');
             }));
         it('only imagemin prompt FALSE', () => helpers.run(join(__dirname, '../generators/app'))
             .withOptions(SKIP_INSTALL)
@@ -354,7 +311,6 @@ describe('Default generator (with custom source directory)', function() {
             .then(() => {
                 verify();
                 noFileContent(browserifyContent);
-                fileContent(ariaContent);
                 noFileContent('Gruntfile.js', 'imagemin: ');
             }));
     });

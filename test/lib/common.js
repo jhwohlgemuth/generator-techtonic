@@ -14,11 +14,6 @@ const browserifyContent = [
     ['Gruntfile.js', 'browserify'],
     ['Gruntfile.js', 'uglify:']
 ];
-const ariaContent = [
-    ['Gruntfile.js', 'a11y: '],
-    ['Gruntfile.js', 'accessibility: '],
-    ['Gruntfile.js', 'aria-audit']
-];
 
 const verifyLessConfigured = _.partial(verifyPreprocessorConfigured, 'less');
 const verifySassConfigured = _.partial(verifyPreprocessorConfigured, 'sass');
@@ -79,7 +74,6 @@ function verifyBoilerplateFiles(sourceDirectory) {
 function verifyDefaultConfiguration(sourceDirectory) {
     verifyCoreFiles();
     verifyLessConfigured(sourceDirectory);
-    fileContent(ariaContent);
     fileContent('Gruntfile.js', 'imagemin: ');
     noFileContent(browserifyContent); // script bundler
     noFileContent('Gruntfile.js', 'jst'); // template technology
