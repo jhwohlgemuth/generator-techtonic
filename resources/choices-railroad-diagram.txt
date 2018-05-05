@@ -2,8 +2,7 @@ Diagram(
     MultipleChoice(1, 'any',
         Comment('Code Quality'),
         NonTerminal('ESLint'),
-        Terminal('ESLint auto-fix'),
-        Terminal('a11y')
+        NonTerminal('Prime Grade rules')
     ),
     Choice(1,
         Comment('Style Processing'),
