@@ -1,5 +1,6 @@
 RLH="yo omaha --defaults"
 RLH_slim="yo omaha --defaults --slim"
+RLH_skip_imagemin="yo omaha --defaults --skip-imagemin"
 BLH_jest="yo omaha --defaults --use-jest"
 RLH_src="yo omaha --defaults --src src"
 RSH_src="yo omaha --defaults --css-preprocessor sass --src src"
@@ -22,6 +23,3 @@ WSL="yo omaha --defaults --use-webpack --css-preprocessor sass --template-techno
 WSH="yo omaha --defaults --use-webpack --css-preprocessor sass --template-technology handlebars"
 WNL="yo omaha --defaults --use-webpack --css-preprocessor none --template-technology lodash"
 WNH="yo omaha --defaults --use-webpack --css-preprocessor none --template-technology handlebars"
-RLH__="yo omaha --defaults --skip-aria --skip-imagemin"
-RLHA_="yo omaha --defaults --skip-imagemin"
-RLH_I="yo omaha --defaults --skip-aria"
