@@ -22,7 +22,6 @@ yo omaha:project
 - `--use-browserify`: use Browserify as script bundler (auto selects CommonJS module format)
 - `--use-jest`: use Facebook's Jest instead of mocha (auto selects CommonJS module format)
 - `--use-webpack`: use Webpack as script bundler (auto selects CommonJS module format and Jest test framework)
-- `--skip-jsinspect`: use with `--defaults`
 
 **Examples:**
 
