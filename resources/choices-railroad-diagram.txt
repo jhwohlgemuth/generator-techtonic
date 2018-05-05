@@ -3,7 +3,6 @@ Diagram(
         Comment('Code Quality'),
         NonTerminal('ESLint'),
         Terminal('ESLint auto-fix'),
-        Terminal('JSInspect'),
         Terminal('a11y')
     ),
     Choice(1,
