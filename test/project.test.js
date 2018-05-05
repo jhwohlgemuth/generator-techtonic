@@ -8,12 +8,10 @@ const {clone}    = require('../generators/app/utils').object;
 const {defaults} = require('../generators/app/prompts').project;
 
 const SKIP_INSTALL = {skipInstall: true};
-const useBoth = [true, true];
-const useNeither = [false, false];
 
 describe('Project generator', () => {
     let stub;
-    const verify = (...args) => {
+    const verify = () => {
         verifyCoreFiles();
     };
     beforeEach(() => {
@@ -27,33 +25,20 @@ describe('Project generator', () => {
             .withOptions(SKIP_INSTALL)
             .withPrompts(defaults)
             .toPromise()
-            .then(() => verify(...useBoth)));
-        it('all prompts FALSE', () => helpers.run(join(__dirname, '../generators/project'))
-            .withOptions(SKIP_INSTALL)
-            .withPrompts(merge(clone(defaults), {
-                jsinspect: false
-            }))
-            .toPromise()
-            .then(() => verify(...useNeither)));
+            .then(() => verify()));
     });
     describe('can create and configure files with command line options', () => {
         const name = 'my-super-cool-project';
         it('--defaults', () => helpers.run(join(__dirname, '../generators/project'))
             .withOptions(merge(clone(SKIP_INSTALL), {defaults: true}))
             .toPromise()
-            .then(() => verify(...useBoth)));
+            .then(() => verify()));
         it('--defaults --name my-super-cool-project', () => helpers.run(join(__dirname, '../generators/project'))
             .withOptions(merge(clone(SKIP_INSTALL), {defaults: true, name}))
             .toPromise()
             .then(() => {
                 verifyCoreFiles(name);
             }));
-        it('--defaults --skip-jsinspect', () => helpers.run(join(__dirname, '../generators/project'))
-            .withOptions(merge(clone(SKIP_INSTALL), {defaults: true}, {
-                'skip-jsinspect': true
-            }))
-            .toPromise()
-            .then(() => verify(...useBoth)));
         it('--defaults --use-jest', () => helpers.run(join(__dirname, '../generators/project'))
             .withOptions(merge(clone(SKIP_INSTALL), {defaults: true}, {
                 'use-jest': true
@@ -69,7 +54,7 @@ describe('Project generator', () => {
         it('--defaults --slim', () => helpers.run(join(__dirname, '../generators/project'))
             .withOptions(merge(clone(SKIP_INSTALL), {defaults: true, slim: true}))
             .toPromise()
-            .then(() => verify(...useNeither)));
+            .then(() => verify()));
         it('--defaults --slim --name my-super-cool-project', () => helpers.run(join(__dirname, '../generators/project'))
             .withOptions(merge(clone(SKIP_INSTALL), {defaults: true, slim: true, name}))
             .toPromise()

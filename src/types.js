@@ -13,7 +13,6 @@ type Config = {
     useHandlebars: boolean,
     useImagemin: boolean,
     useJest: boolean,
-    useJsinspect: boolean,
     useLess: boolean,
     useRust: boolean,
     useSass: boolean,
@@ -33,7 +32,6 @@ export type ProjectGenerator = {
     options: {
         defaults: boolean,
         name: string,
-        skipJsinspect: boolean,
         slim: boolean,
         src: string,
         useBrowserify: boolean,
@@ -43,7 +41,6 @@ export type ProjectGenerator = {
     prompt: Function,
     sourceDirectory: string,
     use: {
-        jsinspect?: boolean,
         projectName: string,
         sourceDirectory: string
     }

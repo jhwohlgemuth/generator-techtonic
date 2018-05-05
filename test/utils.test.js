@@ -123,23 +123,22 @@ describe('Generator Utilities', () => {
         expect(results).toMatchSnapshot();
     });
     it('can get project variables (with --skip options)', () => {
-        function createDummyGenerator(skipJsinspect, slim) {
+        function createDummyGenerator(slim) {
             const projectName = 'my-project';
             return {
-                options: {skipJsinspect, slim},
+                options: {slim},
                 use: {
-                    projectName,
-                    jsinspect: true
+                    projectName
                 },
                 config: {get: () => false}
             };
         }
         const input = [
-            /*  skipJsinspect, slim */
-            [false, false],
-            [false, true],
-            [true, false],
-            [true, true]
+            /*  slim */
+            [false],
+            [true],
+            [false],
+            [true]
         ];
         const results = input
             .map(values => createDummyGenerator(...values))

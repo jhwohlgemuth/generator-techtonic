@@ -17,12 +17,6 @@ const projectQuestions = [
         name: 'sourceDirectory',
         message: 'Where do you want to put the source code?',
         default: './'
-    },
-    {
-        type: 'confirm',
-        name: 'jsinspect',
-        message: 'Detect copy-pasted and structurally similar code with JS Inspect?',
-        default: true
     }
 ];
 const webappQuestions = [

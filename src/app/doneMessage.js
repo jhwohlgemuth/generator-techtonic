@@ -18,7 +18,6 @@ module.exports = function(generator) {
         useHandlebars,
         useImagemin,
         useJest,
-        useJsinspect,
         useLess,
         useRust,
         useSass,
@@ -49,7 +48,6 @@ module.exports = function(generator) {
             `Template renderer: ${bold(maybe(useHandlebars, handlebars, lodash))}`
         ].map(yes).map(str => `  ${str}`)),
         '',
-        yesNo(useJsinspect)('Find duplicate code with JSInspect'),
         maybe(isWebapp, [
             yesNo(useAria)('Perform accessibility audit on HTML code'),
             yesNo(useImagemin)('Compress production images with imagemin')

@@ -107,7 +107,6 @@ module.exports = class extends Generator {
         const {
             isWebapp,
             useJest,
-            useJsinspect,
             useWebpack
         } = config.getAll();
         const updatePackageJson = partial(extend, generator.destinationPath('package.json'));
@@ -127,8 +126,6 @@ module.exports = class extends Generator {
             iff(isWebapp, ['lodash', 'grunt', 'load-grunt-tasks', 'time-grunt', 'config']),
             iff(isWebapp && useWebpack, 'grunt-webpack'),
             iff(useJest, ['watch', 'jest'], ['mocha', 'chai', 'sinon', 'nyc', ...karmaDependencies]),
-            iff(useJsinspect, 'jsinspect'),
-            iff(useJsinspect && isWebapp, ['jsinspect', 'grunt-jsinspect']),
             iff(useWebpack, ['webpack', 'webpack-cli', 'webpack-dev-server', 'webpack-dashboard', 'babel-loader'])
         );
         generator.npmInstall();

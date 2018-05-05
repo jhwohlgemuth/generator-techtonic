@@ -300,16 +300,6 @@ module.exports = {
         }
     }`,
     /**
-     * Detect copy-pasted and structurally similar code
-     * @see {@link https://github.com/stefanjudis/grunt-jsinspect}
-    **/
-    jsinspect: `{
-        app:         {src: ['<%= folders.app %>/<%= files.scripts %>']},
-        models:      {src: ['<%= folders.app %>/<%= files.models %>']},
-        views:       {src: ['<%= folders.app %>/<%= files.views %>']},
-        controllers: {src: ['<%= folders.app %>/<%= files.controllers %>']}
-    }`,
-    /**
      * Lint project JSON files
      * @see {@link https://github.com/brandonramirez/grunt-jsonlint}
     **/

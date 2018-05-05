@@ -451,7 +451,6 @@ function getScripts(generator: WebappGenerator) {
         sourceDirectory,
         useAmd,
         useJest,
-        useJsinspect,
         useRust
     } = generator.config.getAll();
     const scripts = {
@@ -489,9 +488,6 @@ function getScripts(generator: WebappGenerator) {
         test: 'jest .*.test.js --coverage',
         'test:watch': 'npm test -- --watch'
     });
-    useJsinspect && assign(scripts, {
-        inspect: 'grunt jsinspect:app'
-    });
     useRust && assign(scripts, {
         'build:wasm': `rustc +nightly --target wasm32-unknown-unknown -O --crate-type=cdylib ${sourceDirectory}assets/rust/main.rs -o ${sourceDirectory}assets/rust/main.wasm`, // eslint-disable-line max-len
         'postbuild:wasm': `wasm-gc ${sourceDirectory}assets/rust/main.wasm ${sourceDirectory}assets/rust/main.min.wasm`
@@ -505,7 +501,6 @@ function getTasks(generator) {
         useBrowserify,
         useHandlebars,
         useImagemin,
-        useJsinspect,
         useLess,
         useSass,
         useWebpack
@@ -526,9 +521,6 @@ function getTasks(generator) {
         'requirejs',
         'watch'
     ]
-        .concat(// Project tasks enabled by user
-            iff(useJsinspect, 'jsinspect')
-        )
         .concat(// Webapp tasks enabled by user
             iff(useAria, ['a11y', 'accessibility']),
             iff(useBrowserify, 'browserify'),

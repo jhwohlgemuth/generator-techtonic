@@ -61,25 +61,21 @@ Array [
     "isNative": false,
     "projectName": "my-project",
     "sourceDirectory": "undefined/",
-    "useJsinspect": true,
   },
   Object {
     "isNative": false,
     "projectName": "my-project",
     "sourceDirectory": "undefined/",
-    "useJsinspect": false,
   },
   Object {
     "isNative": false,
     "projectName": "my-project",
     "sourceDirectory": "undefined/",
-    "useJsinspect": false,
   },
   Object {
     "isNative": false,
     "projectName": "my-project",
     "sourceDirectory": "undefined/",
-    "useJsinspect": false,
   },
 ]
 `;

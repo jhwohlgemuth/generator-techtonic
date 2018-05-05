@@ -18,7 +18,6 @@ module.exports = function (generator) {
         useHandlebars,
         useImagemin,
         useJest,
-        useJsinspect,
         useLess,
         useRust,
         useSass,
@@ -38,7 +37,7 @@ module.exports = function (generator) {
     const rjs = red('r.js');
     const webpack = blue('Webpack');
 
-    return [].concat('', `${type} Name:  ${bold.inverse(spaceWrap(projectName))}`, maybe(isWebapp, ''), maybe(isNativeWebapp, 'Renderer:', maybe(isWebapp, 'Webapp:')), maybe(isWebapp, [`Script Bundler:    ${bold(maybe(useAmd, rjs, maybe(useWebpack, webpack, browserify)))}`, `CSS pre-processor: ${bold(maybe(useLess, less, maybe(useSass, sass, dim('None'))))}`, `Template renderer: ${bold(maybe(useHandlebars, handlebars, lodash))}`].map(yes).map(str => `  ${str}`)), '', yesNo(useJsinspect)('Find duplicate code with JSInspect'), maybe(isWebapp, [yesNo(useAria)('Perform accessibility audit on HTML code'), yesNo(useImagemin)('Compress production images with imagemin')]), maybe(isNative, ['', yellow.bgBlack.bold(ELECTRON_TAGLINE)]), maybe(useJest, ['', white.bgMagenta.bold(JEST_TAGLINE)]), maybe(useRust, ['', `${white.bgRed.bold(RUST_TAGLINE)}\n${dim(RUST_WARNING)}`]), '', green.bold('All done!'), maybe(isApplication, white('Try out your shiny new app by running ') + white.bgBlack(spaceWrap(LETS_GET_STARTED))), '').join('\n');
+    return [].concat('', `${type} Name:  ${bold.inverse(spaceWrap(projectName))}`, maybe(isWebapp, ''), maybe(isNativeWebapp, 'Renderer:', maybe(isWebapp, 'Webapp:')), maybe(isWebapp, [`Script Bundler:    ${bold(maybe(useAmd, rjs, maybe(useWebpack, webpack, browserify)))}`, `CSS pre-processor: ${bold(maybe(useLess, less, maybe(useSass, sass, dim('None'))))}`, `Template renderer: ${bold(maybe(useHandlebars, handlebars, lodash))}`].map(yes).map(str => `  ${str}`)), '', maybe(isWebapp, [yesNo(useAria)('Perform accessibility audit on HTML code'), yesNo(useImagemin)('Compress production images with imagemin')]), maybe(isNative, ['', yellow.bgBlack.bold(ELECTRON_TAGLINE)]), maybe(useJest, ['', white.bgMagenta.bold(JEST_TAGLINE)]), maybe(useRust, ['', `${white.bgRed.bold(RUST_TAGLINE)}\n${dim(RUST_WARNING)}`]), '', green.bold('All done!'), maybe(isApplication, white('Try out your shiny new app by running ') + white.bgBlack(spaceWrap(LETS_GET_STARTED))), '').join('\n');
 };
 function yes(str) {
     return bold(green('✔ ') + white(str));

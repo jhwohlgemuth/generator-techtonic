@@ -51,15 +51,13 @@ function getModuleFormat(generator) {
 }
 function getProjectVariables(generator) {
     const { options, use } = generator;
-    const { skipJsinspect, slim } = options;
     const { projectName } = use;
     const { name } = options;
     const shouldUseNameOption = typeof name === 'string' && name !== project.defaults.projectName;
     return {
         projectName: shouldUseNameOption ? name : projectName,
         isNative: generator.config.get('isNative'),
-        sourceDirectory: getSourceDirectory(generator),
-        useJsinspect: use.jsinspect && !skipJsinspect && !slim
+        sourceDirectory: getSourceDirectory(generator)
     };
 }
 function getSourceDirectory(generator) {
