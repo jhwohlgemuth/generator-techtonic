@@ -38,7 +38,7 @@ yo omaha
 ```
 ✔ Make some choices
 <div align="center">
-    <img width="100%" type="image/svg+xml" src="https://jhwohlgemuth.github.io/images/choices-railroad-diagram.svg?v=1.6" alt="Generator Choices Rail Diagram" title="Generator Choices Rail Diagram"/>
+    <img width="100%" type="image/svg+xml" src="https://jhwohlgemuth.github.io/images/choices-railroad-diagram.svg?v=1.7" alt="Generator Choices Rail Diagram" title="Generator Choices Rail Diagram"/>
 </div>
 </br>
 ✔ Start creating your app!
