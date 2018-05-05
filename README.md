@@ -132,14 +132,13 @@ yo omaha --defaults --template-technology lodash --skip-coveralls
 > Default in **bold**
 
 - `--defaults`: scaffold app with no user input using defaults
-- `--slim`: use with `--defaults` to skip install of support for aria, and imagemin
+- `--slim`: use with `--defaults` to perform "slim" install (all options skipped)
 - `--src`: use with `--defaults` to select custom source directory for app and assets files
 - `--amd`: use AMD module format (with r.js as script bundler)
 - `--use-browserify`: use Browserify as script bundler (auto selects CommonJS module format)
 - `--use-jest`: use Facebook's Jest instead of mocha (auto selects CommonJS module format)
 - `--use-webpack`: use Webpack as script bundler (auto selects CommonJS module format and Jest test framework)
 - `--use-rust`: Add folder structure, sample file, and build scripts for WebAssembly development using Rust (`rustc` and `wasm-gc` required)
-- `--skip-aria`: use with `--defaults`
 - `--skip-imagemin`: use with `--defaults`
 - `--css-preprocessor`: **`less`** | `sass` | `none`
 - `--template-technology`: **`handlebars`** | `lodash`
