@@ -41,7 +41,7 @@
     "bluebird": "^3.4.1",
     "coveralls": "^3.0.0",
     "del-cli": "^1.1.0",
-    "eslint": "^4.1.1",
+    "eslint": "^5.12.1",
     "eslint-config-omaha-prime-grade": "^10.0.0",
     "eslint-plugin-compat": "^2.2.0",
     "eslint-plugin-promise": "^3.6.0",
