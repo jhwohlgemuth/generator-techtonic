@@ -44,7 +44,7 @@
     "eslint": "^4.1.1",
     "eslint-config-omaha-prime-grade": "^10.0.0",
     "eslint-plugin-compat": "^2.2.0",
-    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-promise": "^4.0.0",
     "flow-bin": "^0.73.0",
     "http-server": "^0.11.0",
     "jest": "^22.0.0",
