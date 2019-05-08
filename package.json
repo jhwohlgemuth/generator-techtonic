@@ -31,7 +31,7 @@
     "gruntfile-editor": "^1.2.0",
     "lodash": "^4.13.1",
     "node-fetch": "^2.0.0",
-    "yeoman-generator": "^2.0.3",
+    "yeoman-generator": "^3.0.0",
     "yosay": "^2.0.0"
   },
   "devDependencies": {
