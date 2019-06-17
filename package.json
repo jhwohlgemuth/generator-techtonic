@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^9.0.0",
     "babel-preset-flow": "^6.23.0",
     "bluebird": "^3.4.1",
     "coveralls": "^3.0.0",
