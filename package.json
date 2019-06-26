@@ -28,10 +28,10 @@
     "config": "^1.17.1",
     "csvtojson": "^1.1.9",
     "fs-extra": "^7.0.0",
-    "gruntfile-editor": "^1.2.0",
-    "lodash": "^4.13.1",
+    "gruntfile-editor": "^1.2.1",
+    "lodash": "^4.17.5",
     "node-fetch": "^2.0.0",
-    "yeoman-generator": "^2.0.3",
+    "yeoman-generator": "^2.0.5",
     "yosay": "^2.0.0"
   },
   "devDependencies": {
