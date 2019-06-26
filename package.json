@@ -53,7 +53,7 @@
     "puppeteer": "^1.0.0",
     "watch": "^1.0.1",
     "yeoman-assert": "^3.0.0",
-    "yeoman-test": "^1.7.0"
+    "yeoman-test": "^2.0.0"
   },
   "babel": {
     "presets": [
