@@ -29,7 +29,7 @@
     "csvtojson": "^1.1.9",
     "fs-extra": "^7.0.0",
     "gruntfile-editor": "^1.2.0",
-    "lodash": "^4.13.1",
+    "lodash": "^4.17.12",
     "node-fetch": "^2.0.0",
     "yeoman-generator": "^2.0.3",
     "yosay": "^2.0.0"
