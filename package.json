@@ -24,7 +24,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "^2.0.1",
+    "chalk": "^3.0.0",
     "config": "^1.17.1",
     "csvtojson": "^1.1.9",
     "fs-extra": "^7.0.0",
