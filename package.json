@@ -48,7 +48,7 @@
     "flow-bin": "^0.73.0",
     "http-server": "^0.11.0",
     "jest": "^22.0.0",
-    "jest-image-snapshot": "^2.4.1",
+    "jest-image-snapshot": "^3.0.0",
     "ncp": "^2.0.0",
     "puppeteer": "^1.0.0",
     "watch": "^1.0.1",
